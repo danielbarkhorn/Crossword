@@ -1,6 +1,5 @@
-from htmlparser import HTMLParser
+from html.parser import HTMLParser
 import codecs
-import numpy
 
 # Here I am creating a subclass and overriding the handler methods
 class crosswordQHTMLParser(HTMLParser):

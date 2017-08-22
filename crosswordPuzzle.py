@@ -2,7 +2,6 @@ import HTMLParserQ
 import HTMLParserA
 from collections import OrderedDict
 import codecs
-import numpy
 
 def toDate(abbr):
     # month = abb[0:4]
@@ -36,7 +35,9 @@ class crosswordPuzzle(object):
         self.fullText = parserQ.words
         self.getQuestions()
         self.answerGrid = parserA.grid
-        self.match()
+        print(self.down)
+        print(self.across)
+        #self.match()
 
     def getQuestions(self):
         acrossIndex = self.fullText.rfind('ACROSS')+len('ACROSS')+1

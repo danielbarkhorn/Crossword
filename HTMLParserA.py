@@ -1,6 +1,5 @@
 from html.parser import HTMLParser
 import codecs
-import numpy
 
 
 
