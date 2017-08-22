@@ -35,9 +35,8 @@ class crosswordPuzzle(object):
         self.fullText = parserQ.words
         self.getQuestions()
         self.answerGrid = parserA.grid
-        print(self.down)
-        print(self.across)
-        #self.match()
+        print(self.answerGrid)
+        self.match()
 
     def getQuestions(self):
         acrossIndex = self.fullText.rfind('ACROSS')+len('ACROSS')+1
@@ -55,7 +54,9 @@ class crosswordPuzzle(object):
         # -8 is to get rid of 'Page: 1" that is at end of all these html files'
         downTemp = self.fullText[downIndex + len('DOWN') + 1: -8].splitlines()
         for line in downTemp:
-            if(line[0:2].strip().isdigit()):
+            if(line.strip().isdigit()):
+                continue
+            elif(line[0:2].strip().isdigit()):
                 lastKey = line[0:2].strip()
                 self.down[lastKey] = line[2:len(line)]
             else:
