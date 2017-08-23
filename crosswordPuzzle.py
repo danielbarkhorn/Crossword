@@ -73,7 +73,7 @@ class crosswordPuzzle(object):
             if(leftE == 14 and str(self.answerGrid[top][leftE]).isalnum()):
                 leftE+=1
             self.QA[str(AQ)+str(self.across[AQ])] = "".join(self.answerGrid[top][leftB:leftE])
-            print(leftB, leftE)
+            #print(leftB, leftE)
             if(leftE > 11):
                 if(top < 14):
                     top += 1
@@ -84,6 +84,7 @@ class crosswordPuzzle(object):
                 leftE += 1
             leftB = leftE
 
+        print(self.QA)
         left = topB = topE = 0
         for DQ in self.down:
             while not str(self.answerGrid[topB][left]).isalnum() and topB < 14:
