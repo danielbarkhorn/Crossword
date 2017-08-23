@@ -2,7 +2,6 @@ import HTMLParserQ
 import HTMLParserA
 from collections import OrderedDict
 import codecs
-import numpy
 
 def toDate(abbr):
     # month = abb[0:4]
@@ -36,6 +35,7 @@ class crosswordPuzzle(object):
         self.fullText = parserQ.words
         self.getQuestions()
         self.answerGrid = parserA.grid
+        print(self.answerGrid)
         self.match()
 
     def getQuestions(self):
@@ -54,7 +54,9 @@ class crosswordPuzzle(object):
         # -8 is to get rid of 'Page: 1" that is at end of all these html files'
         downTemp = self.fullText[downIndex + len('DOWN') + 1: -8].splitlines()
         for line in downTemp:
-            if(line[0:2].strip().isdigit()):
+            if(line.strip().isdigit()):
+                continue
+            elif(line[0:2].strip().isdigit()):
                 lastKey = line[0:2].strip()
                 self.down[lastKey] = line[2:len(line)]
             else:
@@ -71,7 +73,7 @@ class crosswordPuzzle(object):
             if(leftE == 14 and str(self.answerGrid[top][leftE]).isalnum()):
                 leftE+=1
             self.QA[str(AQ)+str(self.across[AQ])] = "".join(self.answerGrid[top][leftB:leftE])
-            print(leftB, leftE)
+            #print(leftB, leftE)
             if(leftE > 11):
                 if(top < 14):
                     top += 1
@@ -82,6 +84,7 @@ class crosswordPuzzle(object):
                 leftE += 1
             leftB = leftE
 
+        print(self.QA)
         left = topB = topE = 0
         for DQ in self.down:
             while not str(self.answerGrid[topB][left]).isalnum() and topB < 14:
