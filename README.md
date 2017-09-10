@@ -30,7 +30,7 @@ crosswordPuzzle.py can be altered to also print the answer grid.
 ]
 
 ## To be done
-- Scrape puzzles from https://www.nytimes.com/crosswords
-- Convert ezch pdf to html
+- Scrape puzzles as pdfs from https://www.nytimes.com/crosswords
+- Convert each pdf to html
 - automate this process
 - store results in CSV
