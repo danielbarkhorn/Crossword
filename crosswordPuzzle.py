@@ -37,6 +37,11 @@ class crosswordPuzzle(object):
         self.answerGrid = parserA.grid
         print(self.answerGrid)
         self.match()
+<<<<<<< Updated upstream
+=======
+        print(self.QA)
+        print(self.answerGrid)
+>>>>>>> Stashed changes
 
     def getQuestions(self):
         acrossIndex = self.fullText.rfind('ACROSS')+len('ACROSS')+1
